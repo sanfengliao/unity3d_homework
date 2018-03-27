@@ -1,18 +1,18 @@
-######解释 游戏对象（GameObjects） 和 资源（Assets）的区别与联系
+###### 解释 游戏对象（GameObjects） 和 资源（Assets）的区别与联系
 	* 官方解释
 		* GameObject: GameObjects are the fundamental objects in Unity that represent characters, props and scenery. They do not accomplish much in themselves but they act as containers for Components, which implement the real functionality.
 		* Assets: An asset is representation of any item that can be used in your game or project. An asset may come from a file created outside of Unity, such as a 3D model, an audio file, an image, or any of the other types of file that Unity supports. There are also some asset types that can be created within Unity, such as an Animator Controller, an Audio Mixer or a Render Texture.
 	* 游戏对象是unity中表示角色，道具，场景等的基本对象，他们本身不能完成许多功能，但他们可以作为组件的容器，有组件完成现实场景的动作
 	* 资源表示可以在你的工程或者游戏中使用的一切物体
 	* 资源可以被一个或多个游戏对象使用，有些资源可以作为模板来实例化游戏对象
-######下载几个游戏案例，分别总结资源、对象组织的结构（指资源的目录组织结构与游戏对象树的层次结构）
+###### 下载几个游戏案例，分别总结资源、对象组织的结构（指资源的目录组织结构与游戏对象树的层次结构）
 ![这里写图片描述](http://img.blog.csdn.net/20180325224507094?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvcXFfMzYyOTc5ODE=/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
 * 如上图图所示结构，资源中可以放置图像、声音、脚本等。
 ###### 编写一个代码，使用 debug 语句来验证 MonoBehaviour 基本行为或事件触发的条件
 1. 基本行为包括 Awake() Start() Update() FixedUpdate() LateUpdate()
 2. 常用事件包括 OnGUI() OnDisable() OnEnable()
-```c#
-	public class NewBehaviourScript : MonoBehaviour {
+```csharp
+public class NewBehaviourScript : MonoBehaviour {
 	// 当前控制脚本实例被装载的时候调用。一般用于初始化整个实例使用。（建议少用，此刻物体还未实例化出来，会影响程序的执行顺序）
     void Awake() {
         Debug.Log ("onAwake");
@@ -78,7 +78,7 @@
 	  	* foreach (Transform child in transform) {  
 		         Destroy(child.gameObject);  
 		  }  
-######资源预设（Prefabs）与 对象克隆 (clone)
+###### 资源预设（Prefabs）与 对象克隆 (clone)
 	* 预设（Prefabs）有什么好处？
 		* 预设类似于一个模板，通过预设可以创建相同属性的对象，这些对象和预设关联。一旦预设发生改变，所有通过预设实例化的对象都会产生相应的变化，通过预设，可以避免修改多个对象属性
 	* 预设与对象克隆 (clone or copy or Instantiate of Unity Object) 关系？
